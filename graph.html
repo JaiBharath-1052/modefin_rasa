@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Rasa Core Visualisation</title>
+    <script src="https://dagrejs.github.io/project/dagre-d3/latest/dagre-d3.min.js"></script>
+    <script src="https://dagrejs.github.io/project/dagre/latest/dagre.min.js"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://dagrejs.github.io/project/graphlib-dot/v0.6.3/graphlib-dot.js"></script>
+</head>
+<body>
+<div id="errormsg" style="color: #b00"></div>
+<svg>
+    <style id="graph-style">
+        .node.invisible > rect {
+            display: none;
+        }
+
+        .node.start > rect {
+            fill: #7f7;
+            rx: 30;
+            ry: 18;
+        }
+
+        .node.end > rect {
+            fill: #f77;
+            rx: 30;
+            ry: 18;
+        }
+
+        .node:not(.active) > rect, .node:not(.active) > .label {
+            opacity: 0.4;
+        }
+
+        .edgePath:not(.active) path {
+            opacity: 0.4;
+        }
+
+        .node.ellipsis > rect {
+            fill: #CCC;
+        }
+
+        .node.intent > rect {
+            fill: #7ff;
+        }
+
+        .node.dashed > rect {
+            stroke-dasharray: 5;
+        }
+
+        text {
+            font-weight: 300;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serf, serif;
+            font-size: 14px;
+            color: #1f1d1d;
+        }
+
+        .node rect {
+            stroke: #444;
+            fill: #fff;
+            stroke-width: 1.5px;
+        }
+
+        .edgePath path {
+            stroke: #333;
+            stroke-width: 1.5px;
+        }
+
+        svg {
+            position: fixed;
+            top: 10px;
+            left: 0;
+            height: 100%;
+            width: 100%
+        }
+    </style>
+    <g></g>
+</svg>
+<script>
+
+  function serveGraph() {
+    let oldInputGraphValue;
+
+    const url = 'visualization.dot';
+    const refreshInterval = 500;
+
+    // trigger a refresh by fetching an updated graph
+    setInterval(function () {
+      fetch(url).then(r => r.text()).then(dot => {
+        document.getElementById('errormsg').innerHTML = '';
+        if (oldInputGraphValue === dot) return;
+
+        oldInputGraphValue = dot;
+        drawGraph(dot);
+      }).catch(err => {
+        document.getElementById('errormsg').innerHTML =
+          'Failed to update plot. (' + err.message + ')';
+      });
+    }, refreshInterval);
+  }
+
+  function drawGraph(graph) {
+    let g = graphlibDot.read(graph);
+    // Set margins, if not present
+    if (!g.graph().hasOwnProperty("marginx") &&
+      !g.graph().hasOwnProperty("marginy")) {
+      g.graph().marginx = 20;
+      g.graph().marginy = 20;
+    }
+    g.graph().transition = function (selection) {
+      return selection.transition().duration(300);
+    };
+    // Render the graph into svg g
+    d3.select("svg g").call(render, g);
+  }
+  // Set up zoom support
+  const svg = d3.select("svg"),
+    inner = d3.select("svg g"),
+    zoom = d3.zoom().on("zoom", function () {
+      inner.attr("transform", d3.event.transform);
+    });
+  svg.call(zoom);
+
+  // Create and configure the renderer
+  const render = dagreD3.render();
+
+  let isClient = false;
+  isClient = true;
+
+  if (isClient) {
+    // Mark all nodes and their edges as active
+    cssRules = document.getElementById('graph-style').sheet.cssRules;
+    cssRules[3].style.opacity = 1;
+    cssRules[4].style.opacity = 1;
+
+    let graph;
+    graph = `digraph  {
+0 [class="start active", fillcolor=green, fontsize=12, label=START, style=filled];
+"-1" [class=end, fillcolor=red, fontsize=12, label=END, style=filled];
+1 [class="", fontsize=12, label=utter_feedback];
+2 [class="", fontsize=12, label=utter_fullstmt];
+3 [class="", fontsize=12, label=utter_ministmt];
+4 [class="", fontsize=12, label=utter_proof_of_payment];
+5 [class="", fontsize=12, label=utter_recharge];
+6 [class="", fontsize=12, label=utter_trfr_types];
+7 [class="", fontsize=12, label=utter_welcome];
+8 [class="", fontsize=12, label=utter_international_transfer];
+9 [class="", fontsize=12, label=action_jokes];
+10 [class="", fontsize=12, label=utter_thanks];
+11 [class="", fontsize=12, label=utter_register_for_autopay];
+12 [class="", fontsize=12, label=utter_manual_registration_for_invalid_details];
+13 [class="", fontsize=12, label=utter_login_credentials_error];
+14 [class="", fontsize=12, label=utter_ussd_code];
+15 [class="", fontsize=12, label=utter_reset_mobile_banking_mpin];
+16 [class="", fontsize=12, label=utter_required_docs_for_visa_gold_card];
+17 [class="", fontsize=12, label=utter_visa_card_cost];
+18 [class="", fontsize=12, label=utter_min_bal_for_visa_gold_card];
+19 [class="", fontsize=12, label=utter_where_to_use_visa_gold_card];
+20 [class="", fontsize=12, label=utter_monthly_charges_for_visa_gold_card];
+21 [class="", fontsize=12, label=utter_card_link_to_paypal];
+22 [class="", fontsize=12, label=utter_when_card_will_activate];
+23 [class="", fontsize=12, label=utter_transaction_limit];
+24 [class="", fontsize=12, label=utter_rtgs_transfer];
+25 [class="", fontsize=12, label=utter_time_take_to_reflect_amount];
+26 [class="", fontsize=12, label=utter_zipit_charges];
+27 [class="", fontsize=12, label=utter_zipit_reflect_time];
+28 [class="", fontsize=12, label=utter_zipit_register];
+29 [class="", fontsize=12, label=utter_zipit_limit_per_day];
+30 [class="", fontsize=12, label=utter_zipit_transaction_cost_to_recall];
+31 [class="", fontsize=12, label=utter_balance];
+32 [class="", fontsize=12, label=utter_how_to_login_internet_bank];
+33 [class="", fontsize=12, label=utter_pop_corporate_user];
+34 [class="", fontsize=12, label=utter_individual_user_bank_statement];
+35 [class="", fontsize=12, label=utter_internet_bank_password_change];
+36 [class="", fontsize=12, label=utter_register_for_obdx];
+37 [class="", fontsize=12, label=utter_register_for_ecocash];
+38 [class="", fontsize=12, label=utter_register_time_for_ecocash];
+39 [class="", fontsize=12, label=utter_ecocash_transaction_limit];
+40 [class="", fontsize=12, label=utter_ecocash_charges];
+41 [class="", fontsize=12, label=utter_cbz_debit_card_charges];
+42 [class="", fontsize=12, label=utter_billpayment];
+43 [class="", fontsize=12, label=utter_cbz_debit_card_available];
+44 [class="", fontsize=12, label=utter_block_cbz_atm_card];
+45 [class="", fontsize=12, label=utter_what_is_debit_card];
+46 [class="", fontsize=12, label=utter_can_use_cbz_debbit_card_on_internet];
+47 [class="", fontsize=12, label=utter_can_use_cbz_debit_card_after_loaded_funds];
+48 [class="", fontsize=12, label=utter_can_withdraw_from_cbz_debit_card];
+49 [class="", fontsize=12, label=utter_how_to_get_cbz_debit_card];
+50 [class="", fontsize=12, label=utter_how_to_load_funds_on_cbz_debit_card];
+51 [class="", fontsize=12, label=utter_time_to_receive_cbz_debit_card];
+52 [class="", fontsize=12, label=utter_forget_debit_card_pin];
+53 [class="", fontsize=12, label=utter_cardless_query1];
+54 [class="", fontsize=12, label=utter_lost_debit_card];
+55 [class="", fontsize=12, label="utter_incorrect_debit-card_pin"];
+56 [class="", fontsize=12, label=utter_cbz_withdraw_fee];
+57 [class="", fontsize=12, label=utter_cbz_card_stuck_in_atm_machine];
+58 [class="", fontsize=12, label=utter_wrong_name_on_cbz_debit_card];
+59 [class="", fontsize=12, label=utter_damaged_cbz_debit_card];
+60 [class="", fontsize=12, label=utter_atm_rejected_cbz_debit_card];
+61 [class="", fontsize=12, label=utter_loan_products];
+62 [class="", fontsize=12, label=utter_personal_loan];
+63 [class="", fontsize=12, label=utter_confirm_personal_loan];
+65 [class="", fontsize=12, label=utter_deny_loan];
+66 [class="", fontsize=12, label=utter_chequebook];
+67 [class="", fontsize=12, label=utter_business_loan];
+68 [class="", fontsize=12, label=utter_confirm_business_loan];
+71 [class="", fontsize=12, label=utter_home_loan];
+72 [class="", fontsize=12, label=utter_confirm_home_loan];
+75 [class="", fontsize=12, label=utter_vacation_loan];
+76 [class="", fontsize=12, label=utter_confirm_vacation_loan];
+79 [class="", fontsize=12, label=utter_change_password];
+80 [class="", fontsize=12, label=utter_covid_19];
+81 [class="", fontsize=12, label=utter_costumer_care];
+82 [class="", fontsize=12, label=utter_electricity_pymt];
+83 [class="", fontsize=12, label="..."];
+84 [class="", fontsize=12, label=utter_goodbye];
+86 [class="", fontsize=12, label=utter_iamabot];
+87 [class=intent, fillcolor=lightblue, label="Can you provide Feedback", shape=rect, style=filled];
+88 [class=intent, fillcolor=lightblue, label="Make Full stmt", shape=rect, style=filled];
+89 [class=intent, fillcolor=lightblue, label="How can I check Mini Statement relating to my account?", shape=rect, style=filled];
+90 [class=intent, fillcolor=lightblue, label="what is proof of Payment?", shape=rect, style=filled];
+91 [class=intent, fillcolor=lightblue, label="Please tell me how to do recharge in mobile", shape=rect, style=filled];
+92 [class=intent, fillcolor=lightblue, label="In Mobile banking service, How many types of fund transfer are there.", shape=rect, style=filled];
+93 [class=intent, fillcolor=lightblue, label="good evening", shape=rect, style=filled];
+94 [class=intent, fillcolor=lightblue, label="I want to do an international transfer", shape=rect, style=filled];
+95 [class=intent, fillcolor=lightblue, label="joke please", shape=rect, style=filled];
+96 [class=intent, fillcolor=lightblue, label="thank you", shape=rect, style=filled];
+97 [class=intent, fillcolor=lightblue, label="register for auto payment", shape=rect, style=filled];
+98 [class=intent, fillcolor=lightblue, label="getting invalid credentials", shape=rect, style=filled];
+99 [class=intent, fillcolor=lightblue, label="I did not receive Log in credentials after successfully registering.", shape=rect, style=filled];
+100 [class=intent, fillcolor=lightblue, label="What is the USSD Code?", shape=rect, style=filled];
+101 [class=intent, fillcolor=lightblue, label="reset mobile password", shape=rect, style=filled];
+102 [class=intent, fillcolor=lightblue, label="what are the documents needed to get the prepaid visa gold card", shape=rect, style=filled];
+103 [class=intent, fillcolor=lightblue, label="what is the cost of visa card", shape=rect, style=filled];
+104 [class=intent, fillcolor=lightblue, label="min bal for the visa gold card account", shape=rect, style=filled];
+105 [class=intent, fillcolor=lightblue, label="whare i can use visa gold card", shape=rect, style=filled];
+106 [class=intent, fillcolor=lightblue, label="What are the charges on the Visa Gold Card?", shape=rect, style=filled];
+107 [class=intent, fillcolor=lightblue, label="can i link my visa card to paypal", shape=rect, style=filled];
+108 [class=intent, fillcolor=lightblue, label="How long does it take to be activated?", shape=rect, style=filled];
+109 [class=intent, fillcolor=lightblue, label="How much is the limit per day and per transaction", shape=rect, style=filled];
+110 [class=intent, fillcolor=lightblue, label="charges for RTGS transfer?", shape=rect, style=filled];
+111 [class=intent, fillcolor=lightblue, label="How long does it take to reflect?", shape=rect, style=filled];
+112 [class=intent, fillcolor=lightblue, label="zipit charges", shape=rect, style=filled];
+113 [class=intent, fillcolor=lightblue, label="time to reflect the zipit", shape=rect, style=filled];
+114 [class=intent, fillcolor=lightblue, label="register zipit", shape=rect, style=filled];
+115 [class=intent, fillcolor=lightblue, label="zipit transaction limit perday", shape=rect, style=filled];
+116 [class=intent, fillcolor=lightblue, label="cost to recall a ZIPIT transactios", shape=rect, style=filled];
+117 [class=intent, fillcolor=lightblue, label=Amit, shape=rect, style=filled];
+118 [class=intent, fillcolor=lightblue, label="how to login when on homepage into internet banking", shape=rect, style=filled];
+119 [class=intent, fillcolor=lightblue, label="How to get POP user", shape=rect, style=filled];
+120 [class=intent, fillcolor=lightblue, label="bank user statement individually", shape=rect, style=filled];
+121 [class=intent, fillcolor=lightblue, label="change internet banking password", shape=rect, style=filled];
+122 [class=intent, fillcolor=lightblue, label="how to register for obdx", shape=rect, style=filled];
+123 [class=intent, fillcolor=lightblue, label="eco cash register for cbz", shape=rect, style=filled];
+124 [class=intent, fillcolor=lightblue, label="when will be ecocash account register", shape=rect, style=filled];
+125 [class=intent, fillcolor=lightblue, label="limit for ecocash transaction", shape=rect, style=filled];
+126 [class=intent, fillcolor=lightblue, label="charge for eco cash account", shape=rect, style=filled];
+127 [class=intent, fillcolor=lightblue, label="debit card charges on cbz account", shape=rect, style=filled];
+128 [class=intent, fillcolor=lightblue, label="can you show me how to pay a bill", shape=rect, style=filled];
+129 [class=intent, fillcolor=lightblue, label="How long does it take to be available after application?", shape=rect, style=filled];
+130 [class=intent, fillcolor=lightblue, label="block my cbz debit card atm", shape=rect, style=filled];
+131 [class=intent, fillcolor=lightblue, label="debit card", shape=rect, style=filled];
+132 [class=intent, fillcolor=lightblue, label="can we use my CBZ Bank Debit Card to shop on the internet?", shape=rect, style=filled];
+133 [class=intent, fillcolor=lightblue, label="can i use my cbz debit card after funds have been exhausted?", shape=rect, style=filled];
+134 [class=intent, fillcolor=lightblue, label="Can I withdraw cash using my CBZ Bank Debit Card?", shape=rect, style=filled];
+135 [class=intent, fillcolor=lightblue, label="help me in getting cbz debit card", shape=rect, style=filled];
+136 [class=intent, fillcolor=lightblue, label="How do I load funds on my Debit Card?", shape=rect, style=filled];
+137 [class=intent, fillcolor=lightblue, label="how much time it will take to receive a cbz debit card", shape=rect, style=filled];
+138 [class=intent, fillcolor=lightblue, label="how to reset my debit card pin", shape=rect, style=filled];
+139 [class=intent, fillcolor=lightblue, label="Can Cardless Withdrawal service be used for Other instead of Own", shape=rect, style=filled];
+140 [class=intent, fillcolor=lightblue, label="I  lost my cbz Debit Card, what can l do?", shape=rect, style=filled];
+141 [class=intent, fillcolor=lightblue, label="atm displaying incorrect pin, what should i do", shape=rect, style=filled];
+142 [class=intent, fillcolor=lightblue, label="what are the charges for cbz debit card for withdrawl", shape=rect, style=filled];
+143 [class=intent, fillcolor=lightblue, label="my cbz debit card got stucked at atm machine", shape=rect, style=filled];
+144 [class=intent, fillcolor=lightblue, label="My Debit Card has the wrong name on it, what should l do?", shape=rect, style=filled];
+145 [class=intent, fillcolor=lightblue, label="My Debit Card is damaged, what should l do?", shape=rect, style=filled];
+146 [class=intent, fillcolor=lightblue, label="ATM rejects my Card?", shape=rect, style=filled];
+147 [class=intent, fillcolor=lightblue, label="which type of loan produts do you have?", shape=rect, style=filled];
+148 [class=intent, fillcolor=lightblue, label="required personal loan", shape=rect, style=filled];
+149 [class=intent, fillcolor=lightblue, label="How can I apply for Cheque Book?", shape=rect, style=filled];
+150 [class=intent, fillcolor=lightblue, label="require business loan", shape=rect, style=filled];
+151 [class=intent, fillcolor=lightblue, label="looking for home loan", shape=rect, style=filled];
+152 [class=intent, fillcolor=lightblue, label="vacation loans", shape=rect, style=filled];
+153 [class=intent, fillcolor=lightblue, label="guide me in changing the password", shape=rect, style=filled];
+154 [class=intent, fillcolor=lightblue, label="Can i add fund for covid19", shape=rect, style=filled];
+155 [class=intent, fillcolor=lightblue, label="How to reach the help desk?", shape=rect, style=filled];
+156 [class=intent, fillcolor=lightblue, label="I would like to pay my electricity bill", shape=rect, style=filled];
+157 [class=intent, fillcolor=lightblue, label="yes please", shape=rect, style=filled];
+158 [class=intent, fillcolor=lightblue, label=noo, shape=rect, style=filled];
+159 [class=intent, fillcolor=lightblue, label=yesss, shape=rect, style=filled];
+160 [class=intent, fillcolor=lightblue, label="some other time", shape=rect, style=filled];
+161 [class=intent, fillcolor=lightblue, label="ok yes", shape=rect, style=filled];
+162 [class=intent, fillcolor=lightblue, label="no thanks!", shape=rect, style=filled];
+163 [class=intent, fillcolor=lightblue, label=yeahh, shape=rect, style=filled];
+164 [class=intent, fillcolor=lightblue, label=nohhh, shape=rect, style=filled];
+165 [class=intent, fillcolor=lightblue, label="/goodbye", shape=rect, style=filled];
+166 [class=intent, fillcolor=lightblue, label="are you a bot?", shape=rect, style=filled];
+0 -> 83  [class="", key=NONE, label=""];
+0 -> 87  [class="", key=0];
+0 -> 88  [class="", key=0];
+0 -> 89  [class="", key=0];
+0 -> 90  [class="", key=0];
+0 -> 91  [class="", key=0];
+0 -> 92  [class="", key=0];
+0 -> 93  [class="", key=0];
+0 -> 94  [class="", key=0];
+0 -> 95  [class="", key=0];
+0 -> 96  [class="", key=0];
+0 -> 97  [class="", key=0];
+0 -> 98  [class="", key=0];
+0 -> 99  [class="", key=0];
+0 -> 100  [class="", key=0];
+0 -> 101  [class="", key=0];
+0 -> 102  [class="", key=0];
+0 -> 103  [class="", key=0];
+0 -> 104  [class="", key=0];
+0 -> 105  [class="", key=0];
+0 -> 106  [class="", key=0];
+0 -> 107  [class="", key=0];
+0 -> 108  [class="", key=0];
+0 -> 109  [class="", key=0];
+0 -> 110  [class="", key=0];
+0 -> 111  [class="", key=0];
+0 -> 112  [class="", key=0];
+0 -> 113  [class="", key=0];
+0 -> 114  [class="", key=0];
+0 -> 115  [class="", key=0];
+0 -> 116  [class="", key=0];
+0 -> 117  [class="", key=0];
+0 -> 118  [class="", key=0];
+0 -> 119  [class="", key=0];
+0 -> 120  [class="", key=0];
+0 -> 121  [class="", key=0];
+0 -> 122  [class="", key=0];
+0 -> 123  [class="", key=0];
+0 -> 124  [class="", key=0];
+0 -> 125  [class="", key=0];
+0 -> 126  [class="", key=0];
+0 -> 127  [class="", key=0];
+0 -> 128  [class="", key=0];
+0 -> 129  [class="", key=0];
+0 -> 130  [class="", key=0];
+0 -> 131  [class="", key=0];
+0 -> 132  [class="", key=0];
+0 -> 133  [class="", key=0];
+0 -> 134  [class="", key=0];
+0 -> 135  [class="", key=0];
+0 -> 136  [class="", key=0];
+0 -> 137  [class="", key=0];
+0 -> 138  [class="", key=0];
+0 -> 139  [class="", key=0];
+0 -> 140  [class="", key=0];
+0 -> 141  [class="", key=0];
+0 -> 142  [class="", key=0];
+0 -> 143  [class="", key=0];
+0 -> 144  [class="", key=0];
+0 -> 145  [class="", key=0];
+0 -> 146  [class="", key=0];
+0 -> 147  [class="", key=0];
+0 -> 148  [class="", key=0];
+0 -> 149  [class="", key=0];
+0 -> 150  [class="", key=0];
+0 -> 151  [class="", key=0];
+0 -> 152  [class="", key=0];
+0 -> 153  [class="", key=0];
+0 -> 154  [class="", key=0];
+0 -> 155  [class="", key=0];
+0 -> 156  [class="", key=0];
+1 -> "-1"  [class="", key=NONE, label=""];
+2 -> "-1"  [class="", key=NONE, label=""];
+3 -> "-1"  [class="", key=NONE, label=""];
+4 -> "-1"  [class="", key=NONE, label=""];
+5 -> "-1"  [class="", key=NONE, label=""];
+6 -> "-1"  [class="", key=NONE, label=""];
+7 -> "-1"  [class="", key=NONE, label=""];
+8 -> "-1"  [class="", key=NONE, label=""];
+9 -> "-1"  [class="", key=NONE, label=""];
+10 -> "-1"  [class="", key=NONE, label=""];
+11 -> "-1"  [class="", key=NONE, label=""];
+12 -> "-1"  [class="", key=NONE, label=""];
+13 -> "-1"  [class="", key=NONE, label=""];
+14 -> "-1"  [class="", key=NONE, label=""];
+15 -> "-1"  [class="", key=NONE, label=""];
+16 -> "-1"  [class="", key=NONE, label=""];
+17 -> "-1"  [class="", key=NONE, label=""];
+18 -> "-1"  [class="", key=NONE, label=""];
+19 -> "-1"  [class="", key=NONE, label=""];
+20 -> "-1"  [class="", key=NONE, label=""];
+21 -> "-1"  [class="", key=NONE, label=""];
+22 -> "-1"  [class="", key=NONE, label=""];
+23 -> "-1"  [class="", key=NONE, label=""];
+24 -> "-1"  [class="", key=NONE, label=""];
+25 -> "-1"  [class="", key=NONE, label=""];
+26 -> "-1"  [class="", key=NONE, label=""];
+27 -> "-1"  [class="", key=NONE, label=""];
+28 -> "-1"  [class="", key=NONE, label=""];
+29 -> "-1"  [class="", key=NONE, label=""];
+30 -> "-1"  [class="", key=NONE, label=""];
+31 -> "-1"  [class="", key=NONE, label=""];
+32 -> "-1"  [class="", key=NONE, label=""];
+33 -> "-1"  [class="", key=NONE, label=""];
+34 -> "-1"  [class="", key=NONE, label=""];
+35 -> "-1"  [class="", key=NONE, label=""];
+36 -> "-1"  [class="", key=NONE, label=""];
+37 -> "-1"  [class="", key=NONE, label=""];
+38 -> "-1"  [class="", key=NONE, label=""];
+39 -> "-1"  [class="", key=NONE, label=""];
+40 -> "-1"  [class="", key=NONE, label=""];
+41 -> "-1"  [class="", key=NONE, label=""];
+42 -> "-1"  [class="", key=NONE, label=""];
+43 -> "-1"  [class="", key=NONE, label=""];
+44 -> "-1"  [class="", key=NONE, label=""];
+45 -> "-1"  [class="", key=NONE, label=""];
+46 -> "-1"  [class="", key=NONE, label=""];
+47 -> "-1"  [class="", key=NONE, label=""];
+48 -> "-1"  [class="", key=NONE, label=""];
+49 -> "-1"  [class="", key=NONE, label=""];
+50 -> "-1"  [class="", key=NONE, label=""];
+51 -> "-1"  [class="", key=NONE, label=""];
+52 -> "-1"  [class="", key=NONE, label=""];
+53 -> "-1"  [class="", key=NONE, label=""];
+54 -> "-1"  [class="", key=NONE, label=""];
+55 -> "-1"  [class="", key=NONE, label=""];
+56 -> "-1"  [class="", key=NONE, label=""];
+57 -> "-1"  [class="", key=NONE, label=""];
+58 -> "-1"  [class="", key=NONE, label=""];
+59 -> "-1"  [class="", key=NONE, label=""];
+60 -> "-1"  [class="", key=NONE, label=""];
+61 -> "-1"  [class="", key=NONE, label=""];
+62 -> 157  [class="", key=0];
+62 -> 158  [class="", key=0];
+63 -> "-1"  [class="", key=NONE, label=""];
+65 -> "-1"  [class="", key=NONE, label=""];
+66 -> "-1"  [class="", key=NONE, label=""];
+67 -> 159  [class="", key=0];
+67 -> 160  [class="", key=0];
+68 -> "-1"  [class="", key=NONE, label=""];
+71 -> 161  [class="", key=0];
+71 -> 162  [class="", key=0];
+72 -> "-1"  [class="", key=NONE, label=""];
+75 -> 163  [class="", key=0];
+75 -> 164  [class="", key=0];
+76 -> "-1"  [class="", key=NONE, label=""];
+79 -> "-1"  [class="", key=NONE, label=""];
+80 -> "-1"  [class="", key=NONE, label=""];
+81 -> "-1"  [class="", key=NONE, label=""];
+82 -> "-1"  [class="", key=NONE, label=""];
+83 -> 165  [class="", key=0];
+83 -> 166  [class="", key=0];
+84 -> "-1"  [class="", key=NONE, label=""];
+86 -> "-1"  [class="", key=NONE, label=""];
+87 -> 1  [class="", key=0];
+88 -> 2  [class="", key=0];
+89 -> 3  [class="", key=0];
+90 -> 4  [class="", key=0];
+91 -> 5  [class="", key=0];
+92 -> 6  [class="", key=0];
+93 -> 7  [class="", key=0];
+94 -> 8  [class="", key=0];
+95 -> 9  [class="", key=0];
+96 -> 10  [class="", key=0];
+97 -> 11  [class="", key=0];
+98 -> 12  [class="", key=0];
+99 -> 13  [class="", key=0];
+100 -> 14  [class="", key=0];
+101 -> 15  [class="", key=0];
+102 -> 16  [class="", key=0];
+103 -> 17  [class="", key=0];
+104 -> 18  [class="", key=0];
+105 -> 19  [class="", key=0];
+106 -> 20  [class="", key=0];
+107 -> 21  [class="", key=0];
+108 -> 22  [class="", key=0];
+109 -> 23  [class="", key=0];
+110 -> 24  [class="", key=0];
+111 -> 25  [class="", key=0];
+112 -> 26  [class="", key=0];
+113 -> 27  [class="", key=0];
+114 -> 28  [class="", key=0];
+115 -> 29  [class="", key=0];
+116 -> 30  [class="", key=0];
+117 -> 31  [class="", key=0];
+118 -> 32  [class="", key=0];
+119 -> 33  [class="", key=0];
+120 -> 34  [class="", key=0];
+121 -> 35  [class="", key=0];
+122 -> 36  [class="", key=0];
+123 -> 37  [class="", key=0];
+124 -> 38  [class="", key=0];
+125 -> 39  [class="", key=0];
+126 -> 40  [class="", key=0];
+127 -> 41  [class="", key=0];
+128 -> 42  [class="", key=0];
+129 -> 43  [class="", key=0];
+130 -> 44  [class="", key=0];
+131 -> 45  [class="", key=0];
+132 -> 46  [class="", key=0];
+133 -> 47  [class="", key=0];
+134 -> 48  [class="", key=0];
+135 -> 49  [class="", key=0];
+136 -> 50  [class="", key=0];
+137 -> 51  [class="", key=0];
+138 -> 52  [class="", key=0];
+139 -> 53  [class="", key=0];
+140 -> 54  [class="", key=0];
+141 -> 55  [class="", key=0];
+142 -> 56  [class="", key=0];
+143 -> 57  [class="", key=0];
+144 -> 58  [class="", key=0];
+145 -> 59  [class="", key=0];
+146 -> 60  [class="", key=0];
+147 -> 61  [class="", key=0];
+148 -> 62  [class="", key=0];
+149 -> 66  [class="", key=0];
+150 -> 67  [class="", key=0];
+151 -> 71  [class="", key=0];
+152 -> 75  [class="", key=0];
+153 -> 79  [class="", key=0];
+154 -> 80  [class="", key=0];
+155 -> 81  [class="", key=0];
+156 -> 82  [class="", key=0];
+157 -> 63  [class="", key=0];
+158 -> 65  [class="", key=0];
+159 -> 68  [class="", key=0];
+160 -> 65  [class="", key=0];
+161 -> 72  [class="", key=0];
+162 -> 65  [class="", key=0];
+163 -> 76  [class="", key=0];
+164 -> 65  [class="", key=0];
+165 -> 84  [class="", key=0];
+166 -> 86  [class="", key=0];
+}
+`;
+    drawGraph(graph);
+  } else {
+    serveGraph();
+  }
+
+
+</script>
+</body>
+</html>

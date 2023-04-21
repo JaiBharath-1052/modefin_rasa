@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    Modefin Test runner11
+   <!-- <div id="webchat"></div>
+	<script src="https://storage.googleapis.com/mrbot-cdn/webchat-latest.js"></script>
+	<script>
+		WebChat.default.init({
+			selector: "#webchat",
+			initPayload: "/get_started",
+			customData: { "language": "pt" }, // arbitrary custom data. Stay minimal as this will be added to the socket
+			socketUrl: "http://localhost:5005",
+			socketPath: "/socket.io/",
+			title: "Global Antares",
+			subtitle: "Antares",
+			connectOn: "open",
+			hideWhenNotConnected : "false"
+		})
+	</script> -->
+
+    <script>
+        var script = document.createElement('script');
+        script.type = "text/javascript";
+        var bot_id = 3;
+        var app_id = "9005c72eff0744149c294b187544f4a1";
+        var baseURL = 'http://192.168.0.223' //'http://192.168.0.116' //'http://localhost'
+        script.src = baseURL + '/assets/chat-widget/js/chatbot.js';
+        console.log("scriptssssss:",script.src)
+        var head = document.getElementsByTagName('head')[0];
+        head.appendChild(script);
+    </script>
+    <!-- <script type="text/javascript">
+        (function(d, m) {
+            var kommunicateSettings = {
+                "appId": "3008145c8698211bc1d98b6b14797c31",
+                "popupWidget": true,
+                "automaticChatOpenOnNavigation": true
+            };
+            var s = document.createElement("script");
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+            var h = document.getElementsByTagName("head")[0];
+            h.appendChild(s);
+            window.kommunicate = m;
+            m._globals = kommunicateSettings;
+        })(document, window.kommunicate || {});
+        /* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
+    </script> -->
+</body>
+
+</html>
