@@ -1,42 +1,51 @@
-# This file contains the different endpoints your bot can use.
+models:
+   url: "http://rasa-x:5002/api/models/tags/production" # ${RASA_MODEL_SERVER}
+   token: lR0e2Apjq78NSBT # ${RASA_X_TOKEN}
+   wait_time_between_pulls: 10 # ${RASA_MODEL_PULL_INTERVAL}
+tracker_store:
+   type: SQL
+   dialect: "postgresql"
+   url: db # ${DB_HOST}
+   port: 5432 # ${DB_PORT}
+   username: -admin  # ${DB_USER}
+   password: JKULYzOzSp3I5l6 # ${DB_PASSWORD}
+   db: -rasa # ${DB_DATABASE}
+   login_db: -rasa  # ${DB_LOGIN_DB}
+lock_store:
+   type: "redis"
+   url: redis # ${REDIS_HOST}
+   port: 6379 # ${REDIS_PORT}
+   password: WcN3uz4.8eMmk74 # ${REDIS_PASSWORD}
+   db: 1 # ${REDIS_DB}
+cache:
+   type: "redis"
+   url: redis # ${REDIS_HOST}
+   port: 6379 # ${REDIS_PORT}
+   password: WcN3uz4.8eMmk74 # ${REDIS_PASSWORD}
+   db: 2 # ${REDIS_CACHE_DB}
+# event_broker:
+#   type: redis
+#   url:  redis
+#   port: 6379
+#   db: 0
+#   password: WcN3uz4.8eMmk74 # <your-redis-password>
 
-# Server where the models are pulled from.
-# https://rasa.com/docs/rasa/model-storage#fetching-models-from-a-server
+event_broker:
+   type: "pika"
+   url: "rabbit" # ${RABBITMQ_HOST}
+   port: 5672
+   username: "user" # ${RABBITMQ_USERNAME}
+   password: E3KNprkEAvgSE0T # ${RABBITMQ_PASSWORD}
+   queues: "rasa_production_events"
+   #- "rasa_production_events" # ${RABBITMQ_QUEUE}
 
-#models:
-#  url: http://my-server.com/models/default_core@latest
-#  wait_time_between_pulls:  10   # [optional](default: 100)
-
-# Server which runs your custom actions.
-# https://rasa.com/docs/rasa/custom-actions
 
 action_endpoint:
- url: "http://localhost:5055/webhook"
+   url: "http://action-server:5055/webhook"
+        # url: ${RASA_USER_APP}/webhook
+        # token: ""
+model_endpoint:
+   url: "http://rasa-x:5002/api/projects/default/models/tags/production"
 
-# Tracker store which is used to store the conversations.
-# By default the conversations are stored in memory.
-# https://rasa.com/docs/rasa/tracker-stores
-
-#tracker_store:
-#    type: redis
-#    url: <host of the redis instance, e.g. localhost>
-#    port: <port of your redis instance, usually 6379>
-#    db: <number of your database within redis, e.g. 0>
-#    password: <password used for authentication>
-#    use_ssl: <whether or not the communication is encrypted, default false>
-
-#tracker_store:
-#    type: mongod
-#    url: <url to your mongo instance, e.g. mongodb://localhost:27017>
-#    db: <name of the db within your mongo instance, e.g. rasa>
-#    username: <username used for authentication>
-#    password: <password used for authentication>
-
-# Event broker which all conversation events should be streamed to.
-# https://rasa.com/docs/rasa/event-brokers
-
-#event_broker:
-#  url: localhost
-#  username: username
-#  password: password
-#  queue: queue
+#credentials:
+#   path_to_credentials: /etc/rasa_171/credentials.yml

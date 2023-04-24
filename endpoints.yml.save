@@ -1,0 +1,38 @@
+models:
+   url: "http://rasa-x:5002 /api/models/tags/production" #${RASA_MODEL_SERVER}
+   token: lR0e2Apjq78NSBT #${RASA_X_TOKEN}
+   wait_time_between_pulls: ${RASA_MODEL_PULL_INTERVAL}
+tracker_store:
+   type: SQL
+   dialect: "postgresql"
+   url: ${DB_HOST}
+   port: 5432 #${DB_PORT}
+   username: ${DB_USER}
+   password: JKULYzOzSp3I5l6 # ${DB_PASSWORD}
+   db: ${DB_DATABASE}
+   login_db: ${DB_LOGIN_DB}
+lock_store:
+   type: "redis"
+   url: ${REDIS_HOST}
+   port: ${REDIS_PORT}
+   password: WcN3uz4.8eMmk74 #${REDIS_PASSWORD}
+   db: ${REDIS_DB}
+cache:
+   type: "redis"
+   url: ${REDIS_HOST}
+   port: ${REDIS_PORT}
+   password: WcN3uz4.8eMmk74 #${REDIS_PASSWORD}
+   db: ${REDIS_CACHE_DB}
+event_broker:
+   type: "pika"
+   url: ${RABBITMQ_HOST}
+   username: ${RABBITMQ_USERNAME}
+   password: E3KNprkEAvgSE0T #${RABBITMQ_PASSWORD}
+   queues:
+   - ${RABBITMQ_QUEUE}
+action_endpoint:
+   url: "http://action-server:5055/webhook"
+        #url: ${RASA_USER_APP}/webhook
+        #token: ""
+model_endpoint:
+  url: "http://rasa-x:5002/api/projects/default/models/tags/production"

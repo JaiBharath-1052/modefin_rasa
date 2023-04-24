@@ -1,32 +1,46 @@
-recipe: default.v1
-assistant_id: 20230409-144958-little-amplifier
 language: en
 pipeline:
-- name: WhitespaceTokenizer
-- name: RegexFeaturizer
-- name: LexicalSyntacticFeaturizer
-- name: CountVectorsFeaturizer
-- name: CountVectorsFeaturizer
-  analyzer: char_wb
-  min_ngram: 1
-  max_ngram: 4
-- name: DIETClassifier
-  epochs: 100
-  constrain_similarities: true
-- name: EntitySynonymMapper
-# - name: ResponseSelector
-#   epochs: 100
-#   constrain_similarities: true
-- name: FallbackClassifier
-  threshold: 0.3
-  ambiguity_threshold: 0.1
+  - name: WhitespaceTokenizer
+  - name: RegexFeaturizer
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: char_wb
+    min_ngram: 1
+    max_ngram: 4
+    max_df: 0.9
+    min_df: 5
+    max_features: 20000 # Increase this value to increase the number of vocabulary slots
+  - name: DIETClassifier
+    epochs: 100
+    constrain_similarities: true
+  - name: EntitySynonymMapper
+  #- name: ResponseSelector
+  #  epochs: 100
+
+  #- name: CRFEntityExtractor
+  #  constrain_similarities: true
+
+  - name: "SpacyNLP"
+    model: "en_core_web_md" # language model to load
+    # when retrieving word vectors, this will decide if the casing
+    # of the word is relevant. E.g. `hello` and `Hello` will
+    # retrieve the same vector, if set to `False`. For some
+    # applications and models it makes sense to differentiate
+    # between these two words, therefore setting this to `True`.
+    case_sensitive: False
+
 policies:
-- name: MemoizationPolicy
-- name: RulePolicy
-# - name: UnexpecTEDIntentPolicy
-#   max_history: 5
-#   epochs: 100
-- name: TEDPolicy
-  max_history: 5
-  epochs: 100
-  constrain_similarities: true
+  - name: MemoizationPolicy
+  - name: TEDPolicy
+    max_history: 5
+    epochs: 100
+    entity_recognition: true
+    constrain_similarities: true
+    model_confidence: linear_norm #softmax
+  - name: RulePolicy
+
+config:
+  # other configuration parameters...
+  domain: "/etc/rasa_171/domain.yml"
+  credentials: /etc/rasa_171/credentials.yml
