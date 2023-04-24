@@ -249,7 +249,6 @@ responses:
   utter_balance:
   - text: " You can check account balance by following steps below :\n\n\
           1. Login using Mobile Banking User ID and M-Pin\n2. Click on My accounts.\n3. Click on Balance Enquiry.\n4. Select the Account and click on submit.\n5. Your account balance will be displayed for the selected account."
-
   utter_billpayment:
   - text: "1. Login to Mobile app.\n2. Go to the **Bill payments** option present\
       \ on the Home or Menu screen.\n3. By clicking on the same you will be taken\
@@ -355,7 +354,6 @@ responses:
           2. Select the Credit Card number that you want to register for the Autopay facility\n
           3. If you want the full amount of your statement to be paid from your bank account select the Total amount due link, and if you want only the minimum amount due to be paid, select Minimum Amount Due.\n
           4. Click on Continue and then on Confirm."
-
   utter_manual_registration_for_invalid_details:
   - text: "Fill in a form for manual registration and submit on contactcentrestaff@cbz.co.zw for processing."
   utter_login_credentials_error:
@@ -365,7 +363,6 @@ responses:
   utter_reset_mobile_banking_mpin:
   - text: "Select **Forgot M-Pin**, enter the details required and submit (or)\n\n\
         Fill in a reset form and submit at nearest branch or on email contactcentrestaff@cbz.co.zw"
-
   utter_required_docs_for_visa_gold_card:
   - text: "An existing Nostro account with CBZ, proof of residence, proof of income and US$5.00.\
            For a student visa you will need copy of ID, proof of residence, University acceptance letter, passport sized photo and US$5.00"
@@ -377,7 +374,6 @@ responses:
   - text: "You can use it anywhere in the world where VISA is accepted."
   utter_monthly_charges_for_visa_gold_card:
   - text: "Monthly service charge is USD$2.00"
-
   utter_card_link_to_paypal:
   - text: "Yes you can link the card to PayPal."
   utter_when_card_will_activate:
@@ -386,31 +382,25 @@ responses:
   - text: "Yes, you do and you receive your statements on email"
   utter_transaction_limit:
   - text: "USD500.00 cash withdrawal, Online payment USD5000.00 and USD5000.00 swiping USD"
-
   utter_rtgs_transfer:
   - text: "Individual RTGs transfer 3% Min $350 Max $3500. Corporate: 3% Min $500..........Max $5500."
-
   utter_time_take_to_reflect_amount:
   - text: "within 48 working hours"
   utter_zipit_charges:
   - text: "Other bank account (ZIPIT) AUTO 3% Min $90......Max $600......"
-
   utter_zipit_reflect_time:
   - text: "It is instant"
   utter_zipit_register:
   - text: "You go on Funds Transfer on CBZ Touch, Select Other Local Bank,\
            enter details that prompt under Type of Transfer on the last field select ZIPIT and submit."
-
   utter_zipit_limit_per_day:
   - text: "ZWL $20 000.00"
   utter_zipit_transaction_cost_to_recall:
   - text: "ZIPIT Recall charge on Request AUTO ZWL$2 500"
-
   utter_how_to_login_internet_bank:
   - text: "On home screen click login, insert details"
   utter_pop_corporate_user:
   - text: "Print the e-receipt soon after making payment (or) You can retrieve the POP by searching past transactions."
-
   utter_individual_user_bank_statement:
   - text: "1. From dashboard **click** menu and select accounts.\n
           2. Select **current and savings** then click view.\n
@@ -436,8 +426,6 @@ responses:
   utter_cbz_debit_card_available:
   - text: "5 working days"
   utter_cbz_debit_card_replacement:
-  - text: "You fill in a form and submit at your nearest branch or on contact@cbz.co.zw"
-  utter_cbz_debit_card_replacement1:
   - text: "You fill in a form and submit at your nearest branch or on contact@cbz.co.zw"
   utter_block_cbz_atm_card:
   - text: "Call us on our toll free number 460/461 to have your card hot listed."
@@ -465,8 +453,6 @@ responses:
   utter_lost_debit_card:
   - text: "You call our 24hour Contact Centre on our Hotline Numbers 0242770550, 0242780888 or 0242791254 to\
           have the Card blocked and order a new Card."
-  #utter_lost_debit_card1:
-  #- text: You call our 24hour Contact Centre on our Hotline Numbers 0242770550,  0242780888 or 0242791254 to have the Card blocked and order a new Card
   utter_incorrect_debit-card_pin:
   - text: "You can try again if you had inserted an incorrect PIN. It gives you 3 chances.\n
           If you have forgotten the PIN, you can visit any CBZ Bank Branch for PIN reset."
