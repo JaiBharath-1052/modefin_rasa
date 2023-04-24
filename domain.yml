@@ -47,8 +47,8 @@ intents:
         - account_number
   - greet
   - international_transfer
-  - mobile_number
-  - mobile
+  #- mobile_number
+  #- mobile
   - thanks
   - change_password
   - register_for_autopay
