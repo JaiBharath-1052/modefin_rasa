@@ -195,7 +195,6 @@ responses:
   utter_balance:
   - text: |2-
        You can check account balance by following steps below :
-
       1. Login using Mobile Banking User ID and M-Pin
       2. Click on My accounts.
       3. Click on Balance Enquiry.
@@ -215,12 +214,9 @@ responses:
   utter_covid_19:
   - text: |-
       You can check account balance by following steps below:
-
       1. Login using Mobile Banking User ID and M-Pin
-
       2. Click on My accounts.
-
-       3. Go to COVID-19 section to donate for different NGOs.
+      3. Go to COVID-19 section to donate for different NGOs.
   utter_costumer_care:
   - text: |-
       Download and install Mobile App
@@ -323,8 +319,6 @@ responses:
   - text: |-
       You can make full statement request up to 6 months in the application.
       For statement more than 6 months, please visit your near branch.
-  utter_senthil:
-  - text: '- '
   utter_international_transfer:
   - text: |-
       You can do an international transfer from your mobile banking app. 
@@ -337,7 +331,7 @@ responses:
   - text: |-
       To register for auto pay follow the below steps:
 
-      1. Click on the Autopay register link on the left side margin.
+       1. Click on the Autopay register link on the left side margin.
        2. Select the Credit Card number that you want to register for the Autopay facility
        3. If you want the full amount of your statement to be paid from your bank account select the Total amount due link, and if you want only the minimum amount due to be paid, select Minimum Amount Due.
        4. Click on Continue and then on Confirm.
@@ -350,7 +344,6 @@ responses:
   utter_reset_mobile_banking_mpin:
   - text: |-
       Select **Forgot M-Pin**, enter the details required and submit (or)
-
       Fill in a reset form and submit at nearest branch or on email contactcentrestaff@cbz.co.zw
   utter_required_docs_for_visa_gold_card:
   - text: An existing Nostro account with CBZ, proof of residence, proof of income and US$5.00.For a student visa you will need copy of ID, proof of residence, University acceptance letter, passport sized photo and US$5.00
@@ -390,7 +383,7 @@ responses:
   - text: Print the e-receipt soon after making payment (or) You can retrieve the POP by searching past transactions.
   utter_individual_user_bank_statement:
   - text: |-
-      1. From dashboard **click** menu and select accounts.
+       1. From dashboard **click** menu and select accounts.
        2. Select **current and savings** then click view.
        3. Select the account you wish to view statement.
   utter_internet_bank_password_change:
@@ -398,14 +391,12 @@ responses:
   utter_register_for_obdx:
   - text: |-
       Complete a registration form and submit on contactcentrestaff@cbz.co.zw.
-
       Kindly note password format comprises lower case, upper case letter and numbers must be entered accordingly.
   utter_register_for_ecocash:
   - text: |-
       1. Select Funds transfer on CBZ Touch and go on External Wallet Account.
-
       2. Go on Ecocash and click on Ecocash Registration and submit.
-       3. Once done dial *151# and go on option 8 and transact.
+      3. Once done dial *151# and go on option 8 and transact.
   utter_register_time_for_ecocash:
   - text: Itâ€™s instant
   utter_ecocash_transaction_limit:
@@ -424,10 +415,8 @@ responses:
   - text: |-
       A Visa Debit Card works basically like a cheque.
        The amount value of your purchase is deducted directly from your cheque/savings account.
-
       You can use your Visa Debit Card to do the following:
-
-      * ATM cash withdrawals
+       * ATM cash withdrawals
        * Purchases on domestic networks like POS machines
        * Purchase goods or pay for services online.
   utter_can_use_cbz_debbit_card_on_internet:
