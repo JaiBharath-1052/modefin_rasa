@@ -303,7 +303,7 @@ nlu:
     - some other time
     - no thanks!
     - nohhh
-- intent: confirm_loan ## confirm_personal_loan|confirm_business_loan|confirm_vacation_loan|confirm_home_loan
+- intent: confirm_loan
   examples: |
     - yes
     - yes please
@@ -317,29 +317,6 @@ nlu:
     - yeahh
     - s
     - Ys
-# - intent: confirm_business_loan
-#   examples: |
-#     - yesss
-#     - yes pleaseee
-#     - ok yess
-#     - yeah!
-#     - yes
-# - intent: confirm_vacation_loan
-#   examples: |
-#     - yes
-#     - yess pleas
-#     - Ok YES
-#     - yeahh
-#     - ysss
-# - intent: confirm_home_loan
-#   examples: |
-#     - YES
-#     - yees please
-#     - ok yes
-#     - yeahss
-#     - YeS Please
-#     - please yes
-#     - yes
 - intent: register_for_autopay
   examples: |
     - How to register for Autopay?
@@ -828,7 +805,5 @@ nlu:
     - atm is not accepting my cbz debit card
     - what to do if my card is not accepted by atm machine
     - cbz bank debit card is not accepted by atm machine
-# - regex: mobile
-#   examples: |
-#     - /^([+]\d{2})?\d{10}$/
+
 
