@@ -40,7 +40,7 @@ policies:
     model_confidence: linear_norm #softmax
   - name: RulePolicy
 
-config:
+configs:
   # other configuration parameters...#Not mandatory
   domain: "/etc/rasa_171/domain.yml"
   credentials: /etc/rasa_171/credentials.yml
