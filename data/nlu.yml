@@ -19,7 +19,12 @@ nlu:
     - How do I make Balance enquiry request?
     - How can I find out my Account Balance?
     - Share account balance details
-    - Amit
+    - My account balance
+    - my acc balance
+    - acc balance
+    - balance
+    - balnce
+    - balane
     - What is myaccount balance?
 - intent: billpayment
   examples: |
@@ -54,6 +59,7 @@ nlu:
     - how to fund covid19
     - support for covid19 fund
     - help me in funding covid9
+    - covid 19
 - intent: costumer_care
   examples: |
     - Please show me costumer care details
@@ -61,6 +67,9 @@ nlu:
     - Customer service center
     - How to reach the help desk?
     - How do I contact Bank Customer Care?
+    - customer care
+    - customer support
+    - customer care support
 - intent: electricity_pymt
   examples: |
     - I would like to pay my electricity bill
@@ -89,6 +98,14 @@ nlu:
     - Extract Statements
     - Please extract full statement of my movement
     - Account transactions overview
+    - full statement
+    - how to check full statement
+    - full stsment
+    - statement
+    - bank statement
+    - bank full statement
+    - my bank acc statement
+    - how to check full statement of my bank
 - intent: ministmt
   examples: |
     - Can I view the transactions relating to my account?
@@ -101,6 +118,13 @@ nlu:
     - Display Mini statement
     - How can I check Mini Statement relating to my account?
     - Please retieve my Mini Statement
+    - mini statement
+    - ministatement
+    - check my account ministatement
+    - bank acc ministatement
+    - display my ministatement
+    - mini statemnt
+    - show my ministatement
 - intent: proof_of_payment
   examples: |
     - How to check Proof of Payment
