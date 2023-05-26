@@ -40,6 +40,8 @@ nlu:
     - I need to check cardless withdrawal service be used for other instead of own
     - i want to see cardless withdrawal service be used for other instead of own
     - Can Cardless Withdrawal service be used for Other instead of Own
+    - cardless withdrawl
+    - withdraw without card
 - intent: chequebook
   examples: |
     - I would like to see my Cheque book
@@ -49,7 +51,10 @@ nlu:
     - Where to find chequebook?
     - Can i get chequebook
     - Share chequebook details
-    - What is my account balance?
+    - show my checkbook
+    - how to see check book
+    - check book
+    - checkbook
 - intent: covid_19
   examples: |
     - How can i help for covid-19 fund
@@ -78,6 +83,15 @@ nlu:
     - How to pay Electricity Bill
     - Show Electricity Bill
     - Extract electricity bill
+    - current bill payment
+    - electricity payment
+    - pay electric bill
+    - help me in paying electric bill
+    - guide me in paying electricity bill
+    - electricity bill payment
+    - electricity bill
+    - payment of electricity bill
+    - pay electricity bills
 - intent: feedback
   examples: |
     - I need the Feedback
@@ -86,6 +100,9 @@ nlu:
     - How do I send Feedback?
     - Show feedback details
     - I would like to know feedback info
+    - feedback please
+    - feedback
+    - feed back
 - intent: fullstmt
   examples: |
     - Please show my bank full statement
@@ -106,6 +123,8 @@ nlu:
     - bank full statement
     - my bank acc statement
     - how to check full statement of my bank
+    - fullstatement
+    - how to check fullstatement
 - intent: ministmt
   examples: |
     - Can I view the transactions relating to my account?
@@ -135,6 +154,12 @@ nlu:
     - Share proof of payment
     - Extract proof of payment
     - where to see proof of payment
+    - where to check proof of payment
+    - proof of payment
+    - payment proof
+    - what is payment proof
+    - whereis my payment proof
+    - show my payment proof
 - intent: recharge
   examples: |
     - I would like to recharge my mobile
@@ -143,6 +168,15 @@ nlu:
     - Please tell me how to do recharge in mobile
     - Topup details from mobile
     - How can I do a mobile Recharge
+    - help me in mobile recharge
+    - how to do mobile recharge
+    - guide me in mobile recharge
+    - show me how to do mobile recharge
+    - recharge my mobile
+    - how to do recharge for my mobile
+    - help me in recharging mobile
+    - mobile recharge
+    
 - intent: trfr_types
   examples: |
     - FT types
@@ -152,6 +186,11 @@ nlu:
     - What are the types of fund transfer
     - I want to know details of transfering the funds
     - Extract the detail information of fund transfer
+    - how to do fundtransfers
+    - what are transfer types
+    - trfr types
+    - trfr type
+    - what are transfr types
 - intent: welcome
   examples: |
     - welcome
@@ -187,6 +226,17 @@ nlu:
     - What is the detailed process of using Cardless Withdrawal service using [ATM](location)?
     - Card less withdrawal at [Agent](location)
     - What is the detailed process of using Cardless Withdrawal service using [Agent](location)?
+    - what are the steps to withdraw cash by cardless
+    - how to do withdraw cash using cardless
+    - cardless withdraw cash
+    - cardless withdraw
+    - card less withdraw
+    - how to withdraw cash without card
+    - can i withdraw cas without card
+    - withdraw cash without card
+    - cardless withdraw steps
+    - steps to withdraw cash without card
+    - cardless withdrew
 - intent: forex_rates
   examples: |
     - Show forex rates
@@ -201,6 +251,12 @@ nlu:
     - Whats todays forex rates [USD](currency-name) to [KES](currency-name1)
     - Check forex rates
     - How can I check Forex Rates?
+    - forex rates
+    - forex
+    - check forex rates
+    - forex rate
+    - what are forex rates
+    - guide me in checking forex rates
 - intent: fund_trfr
   examples: |
     - I would like to transfer my funds
@@ -208,6 +264,11 @@ nlu:
     - How Can I transfer funds to [Other Bank](any) Account
     - How Can I transfer funds to [Same Bank](any) Account
     - How Can I transfer funds to [Own](any) Account
+    - i want to transfer my funds
+    - fund transfers
+    - help me in fund transfer
+    - steps to do fund transfers
+    - transfer funds
 - intent: location
   examples: |
     - find [Branch](location)
@@ -221,13 +282,18 @@ nlu:
     - Generate proof of payAment for [School fees](any)
     - get POP for [Bill payment](any)
     - get me proof of payments for [university fee](any)
+    - pop steps
+    - proof of payments
+    - payment proofs
 - intent: stmt_duration
   examples: |
     - download statement for [1 year](duration)
     - statement for [2 year](duration)
     - how to download statement for [3 months](duration)
     - [1 year](duration) statement download
-- intent: international_transfer
+    - statement
+    - statement duration
+    - intent: international_transfer
   examples: |
     - can you help me in international transfer
     - how i can transfer international
