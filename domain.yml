@@ -246,6 +246,7 @@ responses:
   utter_ministmt:
   - text: |-
       You can check Mini Statement by following steps below:
+      
       1. Login using Mobile Banking User ID and M-Pin.
       2. Click on My accounts.
       3. Click on Mini Statement.
