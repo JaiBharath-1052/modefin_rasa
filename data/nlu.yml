@@ -7,6 +7,7 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+    - bot?
 - intent: balance
   examples: |
     - How can I check balance?
@@ -103,6 +104,7 @@ nlu:
     - feedback please
     - feedback
     - feed back
+    - fdback
 - intent: fullstmt
   examples: |
     - Please show my bank full statement
@@ -285,6 +287,7 @@ nlu:
     - pop steps
     - proof of payments
     - payment proofs
+    - proof of payments for mobile recharge
 - intent: stmt_duration
   examples: |
     - download statement for [1 year](duration)
@@ -293,13 +296,19 @@ nlu:
     - [1 year](duration) statement download
     - statement
     - statement duration
-    - intent: international_transfer
+    - stmnt duration
+    - statement durations
+    - statements for this year
+- intent: international_transfer
   examples: |
     - can you help me in international transfer
     - how i can transfer international
     - steps to do international transfer
     - I want to do an international transfer
     - Can I do an international transfer
+    - international transfer
+    - international transfers
+    - help me in international transfers
 - intent: jokes
   examples: |
     - jokes please
@@ -335,6 +344,10 @@ nlu:
     - how to change the password
     - change my password
     - can you help me in changing my password
+    - change password
+    - change my account password
+    - password change
+    - steps to change password
 - intent: register_for_autopay
   examples: |
     - How to register for Autopay?
@@ -344,6 +357,8 @@ nlu:
     - auto pay register
     - register for auto payment
     - help me to register auto pay
+    - autopay register
+    - register for autopay payment
 - intent: loan_products
   examples: |
     - what loan products do you have?
@@ -353,6 +368,9 @@ nlu:
     - avalable loan products
     - what are the available loan products
     - loan products
+    - loanproducts
+    - products of loans
+    - what are available types of loan products
 - intent: personal_loan
   examples: |
     - personal loan
@@ -378,6 +396,7 @@ nlu:
     - looking for business loan
     - i want business loan
     - require business loan
+    - bussinessloan
 - intent: vacation_loan
   examples: |
     - vacation loan
@@ -385,6 +404,8 @@ nlu:
     - need vacation loans
     - i want vacation loan
     - require vacation loan
+    - vacationloan
+    - vacation-loan
 - intent: deny_loan
   examples: |
     - no
@@ -425,13 +446,19 @@ nlu:
     - avalable loan products
     - what are the available loan products
     - loan products
-
 - intent: register_mobile_banking
   examples: |
     - how to register mobile banking
     - register mobile banking
     - mobile bank register
     - help me in mobile banking register
+    - mobile bank registration
+    - how to apply for mobile banking
+    - mobile bank registrations
+    - steps to register for mobile banking
+    - mobile banking
+    - reg for mobile banking
+    - register for online banking
 - intent: manual_registration_for_invalid_details
   examples: |
     - I am getting an invalid details error code when trying to register for the service, what do l do?
@@ -440,12 +467,17 @@ nlu:
     - getting invalid details while register
     - what to do, i am getting invalid details
     - getting invalid details
+    - manual register for invalid details
+    - steps to manual registration for invalid details 
+    - how to do manual registration for invalid details
 - intent: login_credentials_error
   examples: |
     - I did not receive Log in credentials after successfully registering.
     - did not receive Log in credentials after successfully registering.
     - i didnt get login details after successfully register
     - i didnt get logn credentials after registering
+    - login credentials error
+    -  didnt get login details after successfully register
 - intent: ussd_code
   examples: |
     - What is the USSD Code?
@@ -459,6 +491,7 @@ nlu:
     - ussdcode means
     - what is ussd
     - what does ussd
+    - ussd meant
 - intent: reset_mobile_banking_mpin
   examples: |
     - How do l reset my Mobile Banking m-pin?
@@ -471,6 +504,8 @@ nlu:
     - how to reset mobile banking mpin
     - mpin rest for my mobile banking
     - help me in reseting mobile banking mpin
+    - steps to reset my mobile banking mpin
+    - reset mobile banking pin
 - intent: required_docs_for_visa_gold_card
   examples: |
     - What documents are required for me to get the prepaid Visa Gold Card?
@@ -478,6 +513,8 @@ nlu:
     - what are the documents needed to get the prepaid visa gold card
     - list of docs to get prepaid visa gold card
     - required docs for prepaid visa gold card
+    - what are the required docs for visa gold card
+    - visa gold card requirement docs
 - intent: visa_card_cost
   examples: |
     - how much does the card cost?
