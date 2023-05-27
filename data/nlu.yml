@@ -485,6 +485,9 @@ nlu:
     - what is the cost of visa card
     - cost of card
     - how much is the visa card cost
+    - whare are the visa card cost
+    - visa cord cost
+    - card cost on visa
 - intent: min_bal_for_visa_gold_card
   examples: |
     - What is the minimum balance for the Visa Gold Card account?
@@ -494,6 +497,9 @@ nlu:
     - min balance for visa gold card acc
     - what is the min bal for visa gold card account
     - visa gold card account min balance?
+    - visa gold card min bal
+    - min bal in visa gold card
+    - min bal on visa gold card
 - intent: where_to_use_visa_gold_card
   examples: |
     - Where can this card be used?
@@ -501,6 +507,10 @@ nlu:
     - where used this visa gold card
     - can i use visa gold card in online
     - where can be use visa gold card
+    - where to use visagold card
+    - how to use visa gold card
+    - visa gold card used in
+    - where to use gold card of visa
 - intent: monthly_charges_for_visa_gold_card
   examples: |
     - What are the charges on the Visa Gold Card?
@@ -508,9 +518,15 @@ nlu:
     - visa gold card charges
     - fee for visa gold card
     - how much is charged for visa gold card
+    - monthly charges for visa gold card
+    - month charges on visa gold card
+    - visa gold charges for month
+    - charges per month on visa gold card
 - intent: card_link_to_paypal
   examples: |
     - Can l link my card to PayPal?
+    - can we link my card to paypal
+    - connect my debit card with paypal
     - can i link my visa card to paypal
     - link my card to paypal
     - can i use my card in paypal
@@ -521,6 +537,9 @@ nlu:
     - How long does it take to be activated?
     - how much time it will take for activation
     - when card will be activated
+    - when will be card activated
+    - card activation times
+    - time taken to activate card
     - card activated timings
     - card activation time
     - visa card activation timings
@@ -529,6 +548,9 @@ nlu:
 - intent: receive_sms_alerts
   examples: |
     - Do we receive SMS alerts?
+    - sms alerts
+    - do we receive sms alerts
+    - receive sms alerts
     - can we get sms alerts
     - do i get sms alerts
     - can i get sms notifications
@@ -547,9 +569,15 @@ nlu:
     - transaction limit
     - what is the limit to transact per day
     - transaction limit per day
+    - what are the transaction limits
+    - transaction limit
+    - trans limits
 - intent: rtgs_transfer
   examples: |
     - How much is an RTGS transfer?
+    - rtgs charges
+    - charges on rtgs
+    - charge on rtgs transfer
     - what are RTGS transfer?
     - cost RTGS transfer?
     - charges on RTGS transfer?
@@ -564,6 +592,11 @@ nlu:
     - time taken to reflec the amount
     - how much time does it take to reflect amount
     - time took to reflect the amount
+    - time take to reflect amount
+    - reflect amount timings
+    - how much time take to reflect amount
+    - time took to reflect amount
+    - time take to reflect amnt
 - intent: zipit_charges
   examples: |
     - how much is the charge?
@@ -571,6 +604,11 @@ nlu:
     - how much is the charge on zipit?
     - zipit charges
     - what are the charges on zipit
+    - zipit charge
+    - charges zipit
+    - zipit_charges
+    - zipit-charges
+    - charge on zipit
 - intent: zipit_reflect_time
   examples: |
     - How long does it take to reflects?
@@ -579,11 +617,19 @@ nlu:
     - zipit time to reflect the amount
     - time to reflect the zipit
     - How long it take to reflect zipit?
+    - when will zipit transactions reflect
+    - how long it will take to reflect zipit transactions
+    - zipit reflect time
+    - reflect time to zipit transaction
+    - zipit time to reflect transaction
 - intent: zipit_register
   examples: |
     - How do you register to use ZIPIT?
     - how to register zipit
     - register zipit
+    - zipit register
+    - help me in register for zipit
+    - how to register for zipit
     - help me in registering zipit
     - guide me in registering zipit acc
     - zipit acc register
@@ -591,6 +637,8 @@ nlu:
 - intent: zipit_limit_per_day
   examples: |
     - How much is the limit per a day?
+    - zipit limit per day
+    - zipit transaction limit perday
     - transaction limit per day in zipit
     - zipit transaction limit perday
     - perday limit transaction in zipit
@@ -606,7 +654,8 @@ nlu:
     - what is cost to recall a ZIPIT transaction?
     - cost to recall a ZIPIT transactios
     - cost to recall a ZIPIT
-    - cost to recall a ZIPIT transac
+    - cost to recall a ZIPIT trans
+    - zipit cost on transaction
 - intent: how_to_login_internet_bank
   examples: |
     - How do you login when on homepage?
@@ -615,6 +664,9 @@ nlu:
     - login internet banking when on home page
     - login from homepage into internet banking
     - internet banking login
+    - login internet bank
+    - internet bank login
+    - how to login when i am on homepage with internet bank
     - how to login when on homepage into internet banking
 - intent: pop_corporate_user
   examples: |
@@ -636,8 +688,12 @@ nlu:
     - how to see individual bank user statement
     - bank user statement individually
     - view bank statement of individual user
+    - individual user bank stsmnt
 - intent: internet_bank_password_change
   examples: |
+    - internet bank password change
+    - password change on internet bank
+    - change internet bank password
     - How do l change my password?
     - How do l change my passwords
     - How l can change my password?
@@ -650,6 +706,8 @@ nlu:
 - intent: register_for_obdx
   examples: |
     - How do l register for OBDX?
+    - register for obdx
+    - how to register obdx
     - register obdx
     - how to register for obdx
     - obdx registration
@@ -671,11 +729,13 @@ nlu:
 - intent: register_time_for_ecocash
   examples: |
     - How long does it take?
+    - time take to register for ecocash
     - time taken to rigister ecocash
     - How long does it take to register ecocash?
     - How long it take to register ecocash?
     - How long it take to register eco cash?
     - eco cash registartion time
+    - how much time will take to ecocash registration
     - when will be ecocash account register
 - intent: ecocash_transaction_limit
   examples: |
@@ -701,6 +761,8 @@ nlu:
     - ecocash charge
     - charge for eco cash account
     - what are the charges for eco cash
+    - charges on ecocash
+    - eco cash charge
 - intent: cbz_debit_card_charges
   examples: |
     - How much are the charges for cbz?
@@ -711,6 +773,9 @@ nlu:
     - How much are the charges for debit card cbz
     - How much are the charges for cbz debit card
     - debit card charges on cbz account
+    - cbz debit card charge
+    - debit card charges on cbz
+    - charges on cbz debit card
 - intent: cbz_debit_card_available
   examples: |
     - How long does it take to be available after application?
@@ -723,6 +788,7 @@ nlu:
   examples: |
     - How do l apply for a card or get a replacement?
     - cbz card replacement
+    - replace my cbz debit card
     - how to replace the cbz card
     - cbz debit card replacement
     - how to apply for cbz debit card replacement
@@ -740,6 +806,7 @@ nlu:
     - how to block cbz atm debit card
     - how to block stolen cbz debit card
     - block stolen debit card
+    - blk my cbz debit card
 - intent: how_to_get_cbz_debit_card
   examples: |
     - how do i get cbz debit card
@@ -748,6 +815,7 @@ nlu:
     - how to get cbz card
     - cbz debit card apply
     - how to apply for cbz debit card
+    - help me in applying cbz debit card
 - intent: what_is_debit_card
   examples: |
     - What is a Debit Card?
