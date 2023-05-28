@@ -193,8 +193,7 @@ responses:
   utter_goodbye:
   - text: Good Bye!
   utter_balance:
-  - text: |2-
-       You can check account balance by following steps below :
+  - text: You can check account balance by following steps below :
       1. Login using Mobile Banking User ID and M-Pin
       2. Click on My accounts.
       3. Click on Balance Enquiry.
@@ -212,8 +211,7 @@ responses:
   utter_chequebook:
   - text: Cheque book can be requested from **Cheque Book Request** menu selecting **No of Leaves** from drop down.
   utter_covid_19:
-  - text: |-
-      You can check account balance by following steps below:
+  - text: You can check account balance by following steps below:
       1. Login using Mobile Banking User ID and M-Pin
       2. Click on My accounts.
       3. Go to COVID-19 section to donate for different NGOs.
@@ -223,8 +221,7 @@ responses:
       1. Click on Contact Us in pre-login
       2. Click on the Call or Email icon to communicate using your preferred mode
   utter_electricity_pymt:
-  - text: |-
-      Login to Mobile app.
+  - text: Login to Mobile app.
       Go to the **Bill payments** option present on the Home or Menu screen.
       By clicking on the same you will be taken to the Payments page with configured biller From Biller drop down,select Electricity.
       Enter the details like meter no, amount etc and transaction will be processed by providing transaction Pin
