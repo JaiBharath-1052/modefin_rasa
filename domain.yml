@@ -193,7 +193,8 @@ responses:
   utter_goodbye:
   - text: Good Bye!
   utter_balance:
-  - text: You can check account balance by following steps below :
+  - text: |-
+      You can check account balance by following steps below :
       1. Login using Mobile Banking User ID and M-Pin
       2. Click on My accounts.
       3. Click on Balance Enquiry.
