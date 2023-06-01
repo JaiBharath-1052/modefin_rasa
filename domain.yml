@@ -209,7 +209,7 @@ responses:
       Yes, Customer can intiate transaction for Other person by providing related mobile number and Account Number.
       OTP will be sent to provided Mobile Number and the person can get the cash by providing OTP at any Agent or ATM location
   utter_chequebook:
-  - text: Cheque book can be requested from **Cheque Book Request** menu selecting **No of Leaves** from drop down.
+  - text: Cheque book can be requested from Cheque Book Request menu selecting No of Leaves from drop down.
   utter_covid_19:
   - text: You can check account balance by following steps below:
       1. Login using Mobile Banking User ID and M-Pin
