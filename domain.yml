@@ -222,13 +222,13 @@ responses:
       2. Click on the Call or Email icon to communicate using your preferred mode
   utter_electricity_pymt:
   - text: Login to Mobile app.
-      Go to the **Bill payments** option present on the Home or Menu screen.
+      Go to the Bill payments option present on the Home or Menu screen.
       By clicking on the same you will be taken to the Payments page with configured biller From Biller drop down,select Electricity.
       Enter the details like meter no, amount etc and transaction will be processed by providing transaction Pin
   utter_feedback:
   - text: |-
       Download and install Mobile App
-      1. Go to **Feedback** service.
+      1. Go to Feedback service.
       2. Select Category
       3. Enter the fields available in the form and submit
       4. Feedback will be sent to Bank Team
@@ -242,8 +242,7 @@ responses:
       An e-mail will be sent to your registered e-mail ID with detailed statement for desired period.
   utter_ministmt:
   - text: |-
-      You can check Mini Statement by following steps below:
-      
+      You can check Mini Statement by following steps below:      
       1. Login using Mobile Banking User ID and M-Pin.
       2. Click on My accounts.
       3. Click on Mini Statement.
@@ -253,7 +252,7 @@ responses:
   utter_recharge:
   - text: |-
       1. Login to Mobile app.
-      2. Go to the **Recharge** option present on the Home or Menu screen.
+      2. Go to the Recharge option present on the Home or Menu screen.
       By clicking on the same you will be taken to the recharge page with different options available to you
   utter_trfr_types:
   - text: |-
@@ -267,7 +266,6 @@ responses:
   - text: |-
       Hi! My name is DIVA and I am a Chatbot.
       I can help you with Miracle Bank related queries.
-
       Please type your question or queries as some examples given below
       1.  How can I find out my Account Balance?
       2.  How can I check Mini Statement relating to my account?
@@ -324,11 +322,10 @@ responses:
   utter_thanks:
   - text: Most Welcome, Hope Enjoyed!!
   utter_change_password:
-  - text: After you have logged in, you can change your password using the **Change password** option in the profile section.You have to type your current password and the new password you have chosen in their respective boxes.
+  - text: After you have logged in, you can change your password using the Change password option in the profile section.You have to type your current password and the new password you have chosen in their respective boxes.
   utter_register_for_autopay:
   - text: |-
       To register for auto pay follow the below steps:
-
        1. Click on the Autopay register link on the left side margin.
        2. Select the Credit Card number that you want to register for the Autopay facility
        3. If you want the full amount of your statement to be paid from your bank account select the Total amount due link, and if you want only the minimum amount due to be paid, select Minimum Amount Due.
@@ -370,7 +367,7 @@ responses:
   utter_zipit_reflect_time:
   - text: It is instant
   utter_zipit_register:
-  - text: You go on Funds Transfer on CBZ Touch, Select Other Local Bank,enter details that prompt under Type of Transfer on the last field select ZIPIT and submit.
+  - text: You go on Funds Transfer on CBZ Touch, Select Other Local Bank, enter details that prompt under Type of Transfer on the last field select ZIPIT and submit.
   utter_zipit_limit_per_day:
   - text: ZWL $20 000.00
   utter_zipit_transaction_cost_to_recall:
@@ -381,8 +378,8 @@ responses:
   - text: Print the e-receipt soon after making payment (or) You can retrieve the POP by searching past transactions.
   utter_individual_user_bank_statement:
   - text: |-
-       1. From dashboard **click** menu and select accounts.
-       2. Select **current and savings** then click view.
+       1. From dashboard click menu and select accounts.
+       2. Select current and savings then click view.
        3. Select the account you wish to view statement.
   utter_internet_bank_password_change:
   - text: Click menu, go to Account setting and select change password.
@@ -396,7 +393,7 @@ responses:
       2. Go on Ecocash and click on Ecocash Registration and submit.
       3. Once done dial *151# and go on option 8 and transact.
   utter_register_time_for_ecocash:
-  - text: Itâ€™s instant
+  - text: It's instant
   utter_ecocash_transaction_limit:
   - text: ZWL$20 000.00
   utter_ecocash_charges:
@@ -412,7 +409,7 @@ responses:
   utter_what_is_debit_card:
   - text: |-
       A Visa Debit Card works basically like a cheque.
-       The amount value of your purchase is deducted directly from your cheque/savings account.
+      The amount value of your purchase is deducted directly from your cheque/savings account.
       You can use your Visa Debit Card to do the following:
        * ATM cash withdrawals
        * Purchases on domestic networks like POS machines
