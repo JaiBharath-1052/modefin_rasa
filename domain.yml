@@ -202,7 +202,7 @@ responses:
   utter_billpayment:
   - text: |-
       1. Login to Mobile app.
-      2. Go to the **Bill payments** option present on the Home or Menu screen.
+      2. Go to the Bill payments option present on the Home or Menu screen.
       3. By clicking on the same you will be taken to the Payments page with configured biller
   utter_cardless_query1:
   - text: |-
