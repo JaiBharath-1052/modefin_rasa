@@ -267,6 +267,7 @@ responses:
   - text: |-
       Hi! My name is DIVA and I am a Chatbot.
       I can help you with Miracle Bank related queries.
+      
       Please type your question or queries as some examples given below
       1.  How can I find out my Account Balance?
       2.  How can I check Mini Statement relating to my account?
