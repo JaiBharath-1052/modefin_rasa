@@ -212,7 +212,8 @@ responses:
   utter_chequebook:
   - text: Cheque book can be requested from Cheque Book Request menu selecting No of Leaves from drop down.
   utter_covid_19:
-  - text: You can check account balance by following steps below:
+  - text: |-
+      You can check account balance by following steps below:
       1. Login using Mobile Banking User ID and M-Pin
       2. Click on My accounts.
       3. Go to COVID-19 section to donate for different NGOs.
@@ -222,7 +223,8 @@ responses:
       1. Click on Contact Us in pre-login
       2. Click on the Call or Email icon to communicate using your preferred mode
   utter_electricity_pymt:
-  - text: Login to Mobile app.
+  - text: |-
+      Login to Mobile app.
       Go to the Bill payments option present on the Home or Menu screen.
       By clicking on the same you will be taken to the Payments page with configured biller From Biller drop down,select Electricity.
       Enter the details like meter no, amount etc and transaction will be processed by providing transaction Pin
@@ -267,7 +269,6 @@ responses:
   - text: |-
       Hi! My name is DIVA and I am a Chatbot.
       I can help you with Miracle Bank related queries.
-      
       Please type your question or queries as some examples given below
       1.  How can I find out my Account Balance?
       2.  How can I check Mini Statement relating to my account?
@@ -319,8 +320,7 @@ responses:
       For statement more than 6 months, please visit your near branch.
   utter_international_transfer:
   - text: |-
-      You can do an international transfer from your mobile banking app. 
-       Follow the steps
+      You can do an international transfer from your mobile banking app. Follow the steps
   utter_thanks:
   - text: Most Welcome, Hope Enjoyed!!
   utter_change_password:
@@ -361,7 +361,7 @@ responses:
   utter_transaction_limit:
   - text: USD500.00 cash withdrawal, Online payment USD5000.00 and USD5000.00 swiping USD
   utter_rtgs_transfer:
-  - text: 'Individual RTGs transfer 3% Min $350 Max $3500. Corporate: 3% Min $500..........Max $5500.'
+  - text: Individual RTGs transfer 3% Min $350 Max $3500. Corporate: 3% Min $500..........Max $5500.
   utter_time_take_to_reflect_amount:
   - text: within 48 working hours
   utter_zipit_charges:
@@ -413,9 +413,9 @@ responses:
       A Visa Debit Card works basically like a cheque.
       The amount value of your purchase is deducted directly from your cheque/savings account.
       You can use your Visa Debit Card to do the following:
-       * ATM cash withdrawals
-       * Purchases on domestic networks like POS machines
-       * Purchase goods or pay for services online.
+      * ATM cash withdrawals
+      * Purchases on domestic networks like POS machines
+      * Purchase goods or pay for services online.
   utter_can_use_cbz_debbit_card_on_internet:
   - text: Yes
   utter_can_use_cbz_debit_card_after_loaded_funds:
